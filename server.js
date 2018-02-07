@@ -14,7 +14,7 @@ app.use(cors())
 app.use(express.static(process.env.CWD + '/public'))
 
 app.post('/upload', upload.single('file'), (req, res, next) =>  {
-    return res.json(req.file.size)
+    return res.json({ size: req.file.size })
 })
 
 const PORT = process.env.PORT || 3000;
